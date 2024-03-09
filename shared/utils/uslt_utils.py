@@ -4,8 +4,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset
-import collections
-from torch._six import string_classes
+from collections.abc import Map
+string_classes = str
 
 # Credit to PAWS: https://github.com/facebookresearch/suncet/blob/main/src/losses.py
 def sharpen(p, T):  # T: sharpen temperature
@@ -309,7 +309,7 @@ def collate_custom(batch):
     elif isinstance(batch[0], string_classes):
         return batch
 
-    elif isinstance(batch[0], collections.Mapping):
+    elif isinstance(batch[0], Mapping):
         batch_modified = {key: collate_custom(
             [d[key] for d in batch]) for key in batch[0] if key.find('idx') < 0}
         return batch_modified

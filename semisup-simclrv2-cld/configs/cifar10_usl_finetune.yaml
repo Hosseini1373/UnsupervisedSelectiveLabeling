@@ -9,7 +9,7 @@ DATALOADER:
 
 MODEL:
   ARCH: 'ResNet18'
-  PRETRAIN_PATH: 'pretrained/cifar10_ckpt_epoch_200.pth'
+  PRETRAIN_PATH: '../selective_labeling/pretrained/cifar10_ckpt_epoch_200.pth'
 
 FINETUNE:
   LABELED_INDICES_PATH: '../selective_labeling/saved/cifar10_usl/selected_indices_40_1.npy'

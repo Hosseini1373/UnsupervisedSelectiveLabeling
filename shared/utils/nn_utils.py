@@ -141,9 +141,9 @@ def get_feats_list(model, train_memory_loader, CLIP=False, feat_dim=None, recomp
             feat_dim = 512 if CLIP else 128
 
         feats_list = np.zeros(
-            (len(train_memory_loader.dataset), feat_dim), dtype=np.float)
+            (len(train_memory_loader.dataset), feat_dim), dtype=float)
         targets_list = np.zeros(
-            len(train_memory_loader.dataset), dtype=np.long)
+            len(train_memory_loader.dataset), dtype=np.longlong)
         with torch.no_grad():
             ptr = 0
             for images, targets in tqdm(train_memory_loader):

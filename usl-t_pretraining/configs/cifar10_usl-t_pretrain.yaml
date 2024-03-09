@@ -6,7 +6,7 @@ DATASET:
   NAME: 'cifar10'
   TRANSFORM_NAME: 'SCAN-cifar10'
 
-EPOCHS: 200
+EPOCHS: 2
 
 MODEL:
   ARCH: 'ResNet18'

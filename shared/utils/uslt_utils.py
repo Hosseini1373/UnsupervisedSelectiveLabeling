@@ -4,7 +4,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset
-from collections.abc import Map
+from collections.abc import Mapping
+from collections.abc import Sequence
 string_classes = str
 
 # Credit to PAWS: https://github.com/facebookresearch/suncet/blob/main/src/losses.py
@@ -314,7 +315,7 @@ def collate_custom(batch):
             [d[key] for d in batch]) for key in batch[0] if key.find('idx') < 0}
         return batch_modified
 
-    elif isinstance(batch[0], collections.Sequence):
+    elif isinstance(batch[0], Sequence):
         transposed = zip(*batch)
         return [collate_custom(samples) for samples in transposed]
 
